@@ -3,14 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { InicioComponent } from './inicio/inicio.component';
+import {DividerModule} from 'primeng/divider';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { AdminComponent } from './admin/admin.component';
+import { NutriComponent } from './nutri/nutri.component';
+import {MenubarModule} from 'primeng/menubar';
+import { ListaNutrisComponent } from './admin/lista-nutris/lista-nutris.component';
+import { IngresarNutriComponent } from './admin/ingresar-nutri/ingresar-nutri.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicioComponent,
+    UsuarioComponent,
+    AdminComponent,
+    NutriComponent,
+    ListaNutrisComponent,
+    IngresarNutriComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DividerModule,
+    ButtonModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    HttpClientModule, 
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
