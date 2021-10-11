@@ -12,9 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { AdminComponent } from './admin/admin.component';
 import { NutriComponent } from './nutri/nutri.component';
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { ListaNutrisComponent } from './admin/lista-nutris/lista-nutris.component';
 import { IngresarNutriComponent } from './admin/ingresar-nutri/ingresar-nutri.component';
+import {PasswordModule} from 'primeng/password';
+import {InputMaskModule} from 'primeng/inputmask';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,11 @@ import { IngresarNutriComponent } from './admin/ingresar-nutri/ingresar-nutri.co
     InputTextModule,
     ReactiveFormsModule,
     HttpClientModule, 
-    MenubarModule
+    MenubarModule,
+    PasswordModule,
+    InputMaskModule,
+    InputTextareaModule,
+    ScrollPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
