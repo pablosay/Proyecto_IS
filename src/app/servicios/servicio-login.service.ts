@@ -26,8 +26,8 @@ export class ServicioLoginService {
   }
 
   cerrarSesion(){
-    return this.usuario_actual = "";
-    return this.tipo = "";
+    this.usuario_actual = "";
+    this.tipo = "";
   }
 
 }

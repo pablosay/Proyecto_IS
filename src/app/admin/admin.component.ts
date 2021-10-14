@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import {MenuItem, PrimeIcons} from 'primeng/api';
+import { ServicioLoginService } from '../servicios/servicio-login.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -10,7 +11,7 @@ export class AdminComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor() {
+  constructor(private login: ServicioLoginService, private router: Router) {
     this.items = [];
   }
 
@@ -28,8 +29,14 @@ export class AdminComponent implements OnInit {
     },
     {
       label: 'Cerrar sesión',
-      icon: PrimeIcons.POWER_OFF
+      icon: PrimeIcons.POWER_OFF,
+      command: () => this.salir()
     }]
+  }
+
+  salir(){
+    this.login.cerrarSesion();
+    this.router.navigateByUrl("/inicio")
   }
 
 }
