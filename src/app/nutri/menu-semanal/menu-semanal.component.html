@@ -1,0 +1,103 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<p-messages></p-messages> 
+<div class = "principal-container">
+    <div class = "segundo-contenedor">
+        <div class = "form" >
+            <div class="p-grid p-fluid"> 
+                <h1> Seleccionar usuario </h1>
+                <form [formGroup]="form_usuario" (ngSubmit)="buscar()"> 
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Usuario </i></span>
+                            <input type="text" pInputText formControlName = "usuario">
+                            <br>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" label="Buscar" [disabled]="!form_usuario.valid"></p-button>
+                        
+                    </div>
+                    <br>
+                </form>
+            </div>
+
+            <div class="p-grid p-fluid" *ngIf = "usuario_seleccionado == true"> 
+                <h1>Asignar Menús </h1>
+                <form [formGroup]="form_menu" (ngSubmit)="ingresar()">
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Lunes </i></span>
+                            <p-dropdown [options]="lista_lunes" formControlName = "lun" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}} . {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Martes </i></span>
+                            <p-dropdown [options]="lista_martes" formControlName = "mar" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}} . {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Miercoles </i></span>
+                            <p-dropdown [options]="lista_miercoles" formControlName = "mier" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}}. {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Jueves </i></span>
+                            <p-dropdown [options]="lista_jueves" formControlName = "jue" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}}. {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Viernes </i></span>
+                            <p-dropdown [options]="lista_viernes" formControlName = "vie" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}}. {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Sabado </i></span>
+                            <p-dropdown [options]="lista_sabado" formControlName = "sab" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}}. {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Domingo </i></span>
+                            <p-dropdown [options]="lista_domingo" formControlName = "dom" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}}. {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" label="ingresar" [disabled]="!form_menu.valid"></p-button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

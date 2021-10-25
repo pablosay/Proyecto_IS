@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import {MenuItem, PrimeIcons} from 'primeng/api';
 import { ServicioLoginService } from '../servicios/servicio-login.service';
 @Component({
@@ -30,21 +30,67 @@ export class NutriComponent implements OnInit {
           routerLink: 'ingresarCliente'
         },
         {
-          label: 'Listar clientes',
+          label: 'Listar clientes del sistema',
           icon: PrimeIcons.LIST,
           routerLink: 'clientes'
+        },
+        {
+          label: 'Datos nutricionales',
+          icon: PrimeIcons.BARS,
+          routerLink: 'datosnutricionales'
         }
       ]
     },
     {
       label: 'Alimentos',
       icon: PrimeIcons.APPLE,
-      routerLink: 'alimentos'
+      items: [
+        {
+          label: 'Menús',
+          icon: PrimeIcons.FILE,
+          items: [
+            {
+              label: 'Asignar comidas',
+              icon: PrimeIcons.PLUS,
+              routerLink: 'asignarAlimentos'
+            }, 
+            {
+              label: 'Menu semanal',
+              icon: PrimeIcons.CALENDAR_PLUS,
+              routerLink: 'menuSemanal'
+            },{
+              label: 'Listar Menus',
+              icon: PrimeIcons.LIST,
+              routerLink: 'listarMenus'
+            }
+          ]
+        },
+        {
+          label: 'Ingresar comidas',
+          icon: PrimeIcons.PLUS,
+          routerLink: 'alimentos'
+        }, 
+        {
+          label: 'Listar comidas',
+          icon: PrimeIcons.LIST,
+          routerLink: 'listarAlimentos'
+        }
+      ]
     },
     {
       label: 'Consulta',
       icon: PrimeIcons.BOOK,
-      routerLink: 'consulta'
+      items: [
+      {
+        label: 'Consulta',
+        icon: PrimeIcons.BOOKMARK,
+        routerLink: 'consulta'
+      },
+      {
+        label: 'Listado de consultas',
+        icon: PrimeIcons.TABLE,
+        routerLink: 'listarconsultas'
+      }]
     },
     {
       label: 'Cerrar sesión',

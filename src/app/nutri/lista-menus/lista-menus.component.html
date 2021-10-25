@@ -1,0 +1,78 @@
+<h1>Menus por cliente</h1>
+<br>
+<p-table 
+    #dt1 [value]="menus" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['cliente']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por cliente" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Id
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Cliente
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Desayuno
+                    
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Almuerzo
+                    
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Cena
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.id}}
+            </td>
+            <td>
+                {{data.cliente}}
+            </td>
+            <td>
+                {{data.desayuno}}
+            </td>
+            <td>
+                {{data.almuerzo}}
+            </td>
+            <td>
+                {{data.cena}} 
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>

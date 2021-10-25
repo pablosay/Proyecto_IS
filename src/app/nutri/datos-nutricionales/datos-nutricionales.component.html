@@ -1,0 +1,173 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<h1>Datos generales clientes </h1>
+<br>
+<p-table 
+    #dt1 [value]="datos" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre','cliente']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por cliente" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Cliente
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Calorias por dia
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    IMC
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Peso
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Altura
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.cliente}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.calorias_dia}} Kcal
+            </td>
+            <td>
+                {{data.imc}}
+            </td>
+            <td>
+                {{data.peso}} kg
+            </td>
+            <td>
+                {{data.altura}} cm
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<h1> Menus semanales de clientes </h1>
+<br>
+<p-table 
+    #dt2 [value]="menusSemanales" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre','usuario']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por cliente" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Cliente
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Dia
+                    
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Desayuno
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Almuerzo
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Cena
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.usuario}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.dia}}
+            </td>
+            <td>
+                {{data.desayuno}}
+            </td>
+            <td>
+                {{data.almuerzo}} 
+            </td>
+            <td>
+                {{data.cena}} 
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>

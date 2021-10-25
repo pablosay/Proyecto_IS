@@ -1,1 +1,68 @@
-<p>alimentos works!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<div class = "principal-container">
+    <div class = "segundo-contenedor">
+        <div class = "form" >
+            <form [formGroup]="form_ingreso_alimento" (ngSubmit)="registrar()"> 
+                <div class="p-grid p-fluid"> 
+                    <h1> Alimentos </h1>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Nombre </i></span>
+                            <input type="text" pInputText formControlName = "nombre">
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-field-radiobutton">
+                        <p-radioButton value="D" inputId="des" formControlName = "tipo"></p-radioButton>
+                        <label style= "color:white" for="des">  Desayuno </label>
+                    </div>
+                    <br>
+                    <div class = "p-field-radiobutton">
+                        <p-radioButton value="A" inputId="alm" formControlName = "tipo"></p-radioButton>
+                        <label style= "color:white" for="alm">  Almuerzo </label>
+                    </div>
+                    <br>
+                    <div class = "p-field-radiobutton">
+                        <p-radioButton value="C" inputId="cen" formControlName = "tipo"></p-radioButton>
+                        <label style= "color:white" for="cen">  Cena </label>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Calorias</i></span>
+                            <input type="number" class ="inumber" pInputText formControlName = "cal" placeholder="Kcal">
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Proteina</i></span>
+                            <input type="number" class ="inumber" pInputText formControlName = "prot" placeholder="Gramos">
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Carbohidratos </i></span>
+                            <input type="number" class ="inumber" pInputText formControlName = "carb" placeholder="Gramos">
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Grasa </i></span>
+                            <input type="number" class ="inumber" pInputText formControlName = "grasa" placeholder="Gramos">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" label="Registrar" [disabled]="!form_ingreso_alimento.valid"></p-button>
+                    </div>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

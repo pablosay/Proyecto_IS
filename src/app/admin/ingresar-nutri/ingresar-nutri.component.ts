@@ -40,7 +40,6 @@ export class IngresarNutriComponent implements OnInit {
           this.form_registro_nutri.reset();
         } 
       });
-
     }
   }
 }

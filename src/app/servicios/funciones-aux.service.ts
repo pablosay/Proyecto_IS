@@ -8,7 +8,7 @@ export class FuncionesAuxService {
   constructor() {
 
   }
-  calcularEdad(cumple:string):Number{
+  calcularEdad(cumple:string):number{
     var dia_i = Number(String(cumple).substring(8,10));
     var year_i = Number(String(cumple).substring(11,15));
     var fecha_actual = new Date();
@@ -79,5 +79,16 @@ export class FuncionesAuxService {
       mes_hoy = mes_hoy + 12;
     }
     return year_hoy - year_i;
+  }
+
+  calcularCaloriasPorDia(sexo:string, factor_actividad:number, peso: number, altura:number, edad: number){
+    if(sexo == "M"){
+      return  (66 + (13.7 * peso)) + ((5 * altura) - (6.8 * edad))*factor_actividad;
+    }
+    return (655 + (9.6 * peso)) + ((1.8 * altura) - (4.7 * edad))*factor_actividad;
+  }
+
+  calcularIMC(peso:number, altura:number):number{
+    return (peso/((altura/100)*(altura/100)));
   }
 }

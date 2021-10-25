@@ -1,0 +1,59 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<p-messages></p-messages> 
+<div class = "principal-container">
+    <div class = "segundo-contenedor">
+        <div class = "form" >
+            <form [formGroup]="form_menu" (ngSubmit)="registrar()"> 
+                <div class="p-grid p-fluid"> 
+                    <h1>Asignar Menús </h1>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "p-inputgroup"> 
+                            <span class="p-inputgroup-addon"><i> Nombre </i></span>
+                            <input type="text" pInputText formControlName = "usuario">
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Desayuno </i></span>
+                            <p-dropdown [options]="lista_desayunos" formControlName = "desayuno" placeholder="Seleccione una comida" optionLabel = "nombre" optionValue = "nombre" [showClear]="true"> 
+                                <ng-template let-comida pTemplate="item">
+                                    <div> {{comida.nombre}} - {{comida.calorias}}kCal </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Almuerzo </i></span>
+                            <p-dropdown [options]="lista_almuerzos" formControlName = "almuerzo" placeholder="Seleccione una comida" optionLabel = "nombre" optionValue = "nombre" [showClear]="true">
+                                <ng-template let-comida pTemplate="item">
+                                    <div> {{comida.nombre}} - {{comida.calorias}}kCal </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> Cena </i></span>
+                            <p-dropdown [options]="lista_cenas" formControlName = "cena" placeholder="Seleccione una comida" optionLabel = "nombre" optionValue = "nombre" [showClear]="true">
+                                <ng-template let-comida pTemplate="item">
+                                    <div> {{comida.nombre}} - {{comida.calorias}}kCal </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" label="Registrar" [disabled]="!form_menu.valid"></p-button>
+                    </div>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

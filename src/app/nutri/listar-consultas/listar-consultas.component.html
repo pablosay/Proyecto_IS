@@ -1,0 +1,370 @@
+<h1>Datos generales </h1>
+<br>
+<p-table 
+    #dt1 [value]="datos_generales" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por nombre" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Numero
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Fecha
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Calorias
+                    
+                </div>
+            </th>
+            <th pSortableColumn="IMC"> 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    IMC
+                    
+                </div>
+            </th>
+            <th pSortableColumn="Peso">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Peso
+                    
+                </div>
+            </th>
+            <th pSortableColumn="Altura">
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Altura
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.numero}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.fecha | date: 'MM/dd/yyyy'}}
+            </td>
+            <td>
+                {{data.calorias_dia}} kCal
+            </td>
+            <td>
+                {{data.imc}} 
+            </td>
+            <td>
+                {{data.peso}} kg
+            </td>
+            <td>
+                {{data.altura}} cm
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br>
+
+<h1>Datos Torso </h1>
+<br>
+<p-table 
+    #dt2 [value]="datos_torso" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por nombre" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Numero
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Fecha
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Pectoral
+                    
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Supracrestal
+                    
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Subescapular
+                </div>
+            </th>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Subescapular
+                </div>
+            </th>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Supraespinal
+                </div>
+            </th>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Abdominal
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.numero}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.fecha | date: 'MM/dd/yyyy'}}
+            </td>
+            <td>
+                {{data.pectoral}} cm
+            </td>
+            <td>
+                {{data.supracrestal}} mm
+            </td>
+            <td>
+                {{data.subescapular}} mm
+            </td>
+            <td>
+                {{data.supraespinal}} mm
+            </td>
+            <td>
+                {{data.supraespinal}} mm
+            </td>
+            <td>
+                {{data.abdominal}} cm
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br>
+
+<br>
+
+<h1>Datos Brazos </h1>
+<br>
+<p-table 
+    #dt3 [value]="datos_brazo" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt3.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por nombre" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Numero
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Fecha
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Bicep
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Tricep
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.numero}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.fecha | date: 'MM/dd/yyyy'}}
+            </td>
+            <td>
+                {{data.biceps}} cm
+            </td>
+            <td>
+                {{data.tricep}} cm
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br>
+
+<h1>Datos Piernas </h1>
+<br>
+<p-table 
+    #dt4 [value]="datos_piernas" 
+    dataKey="id" 
+    [rows]="10" 
+    [showCurrentPageReport]="true" 
+    [rowsPerPageOptions]="[10,25,50]" 
+    styleClass="p-datatable-gridlines"  
+    [paginator]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [globalFilterFields]="['nombre']" 
+    responsiveLayout="scroll"
+>
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt4.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por nombre" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Numero
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Nombre
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Fecha
+                </div>
+            </th>
+            <th >
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Medial Pierna
+                </div>
+            </th>
+            <th > 
+                <div class="p-d-flex p-jc-between p-ai-center">
+                    Frontal Muslo
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td>
+                {{data.numero}}
+            </td>
+            <td>
+                {{data.nombre}}
+            </td>
+            <td>
+                {{data.fecha | date: 'MM/dd/yyyy'}}
+            </td>
+            <td>
+                {{data.medial_pierna}} cm
+            </td>
+            <td>
+                {{data.frontal_muslo}} cm
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="7">No se encontraron consultas</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<br>

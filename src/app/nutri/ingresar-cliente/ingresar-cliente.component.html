@@ -15,9 +15,14 @@
                     </div>
                     <br>
                     <div class="p-col-12  p-md-4">
-                        <div class = "div-phone">
-                            <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                            <p-calendar dateFormat="dd/mm/yy" [yearNavigator]="true" yearRange="1900:2021" inputId="monthpicker" placeholder = "Fecha de nacimiento" formControlName = "fecha"></p-calendar>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "sexo" value="F" inputId="fem"></p-radioButton>
+                            <label style= "color:white" for="fem">  Mujer </label>
+                        </div>
+                        <br>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "sexo" value="M" inputId="mas"></p-radioButton>
+                            <label style= "color:white" for="mas">  Hombre </label>
                         </div>
                     </div>
                     <br>

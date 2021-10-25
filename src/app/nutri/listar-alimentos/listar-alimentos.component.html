@@ -1,0 +1,25 @@
+<br>
+<p-table [value]="alimentos" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Nombre</th>
+            <th>Calorias</th>
+            <th>Proteinas </th>
+            <th> Carboidratos </th>
+            <th> Grasa</th>
+            <th> Tipo </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-alimento>
+        <tr>
+            <td>{{alimento.nombre}}</td>
+            <td>{{alimento.calorias}} kcal</td>
+            <td>{{alimento.prot}} g</td>
+            <td>{{alimento.carb}} g</td>
+            <td>{{alimento.grasa}} g</td>
+            <td *ngIf = "alimento.tipo=='D'"> <p-tag styleClass="p-mr-2" severity="success" value='{{alimento.tipo}}'></p-tag></td>
+            <td *ngIf = "alimento.tipo=='A'"> <p-tag styleClass="p-mr-2" severity="warning" value='{{alimento.tipo}}'></p-tag></td>
+            <td *ngIf = "alimento.tipo=='C'"> <p-tag styleClass="p-mr-2" severity="info" value='{{alimento.tipo}}'></p-tag></td>
+        </tr>
+    </ng-template>
+</p-table>
