@@ -1,0 +1,70 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<p-messages></p-messages> 
+<div class = "principal-container">
+    <div class = "segundo-contenedor">
+        <div class = "form">
+            <form [formGroup]="form" (ngSubmit)="actualizar()"> 
+                <div class="p-grid p-fluid"> 
+                    <h1> Actualizar datos </h1>
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i>Edad </i> </span>
+                            <input type="number" placeholder ="Años" pInputText formControlName = "edad">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i>Peso </i> </span>
+                            <input type="number" formControlName = "peso" step = "0.1" pInputText placeholder="Kilogramos">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i>Altura </i> </span>
+                            <input type="number" formControlName = "altura" step = "0.1" pInputText placeholder="Centimetros">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="p-col-12  p-md-4">
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "factor" value="1.2" inputId="sed"></p-radioButton>
+                            <label style= "color:white" for="sed">  Sedentaria </label>
+                        </div>
+                        <br>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "factor" value="1.375" inputId="poca"></p-radioButton>
+                            <label style= "color:white" for="poca">  Poca </label>
+                        </div>
+                        <br>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "factor" value="1.55" inputId="mod"></p-radioButton>
+                            <label style= "color:white" for="mod">  Moderada </label>
+                        </div>
+                        <br>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "factor" value="1.752" inputId="in"></p-radioButton>
+                            <label style= "color:white" for="int">  Intensa </label>
+                        </div>
+                        <br>
+                        <div class = "p-field-radiobutton">
+                            <p-radioButton  formControlName = "factor" value="1.9" inputId="at"></p-radioButton>
+                            <label style= "color:white" for="at">  Atleta </label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "p-col-12 p-md-4">
+                        <div class="p-inputgroup">
+                            <p-button class = "boton" type = "input" label="Registrar" [disabled]="!form.valid"></p-button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

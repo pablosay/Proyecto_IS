@@ -202,5 +202,105 @@ export class MenuSemanalCliente{
         this.almuerzo = almuerzo;
         this.cena = cena;
     }
+}
+export class perfilCliente{
+    nombre:string;
+    sexo:string;
+    telefono:string;
+    nutri:string;
+    calorias_dia: number;
+    imc: number;
+    peso: number;
+    altura: number;
+    constructor(nombre:string, sexo:string, telefono:string, nutri:string, calorias: number, imc: number, peso: number, altura: number){
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.telefono = telefono;
+        this.nutri = nutri;
+        this.calorias_dia = calorias;
+        this.imc = imc;
+        this.peso = peso;
+        this.altura = altura; 
+    }
 
+}
+export class DatosCliente{
+    fecha:string;
+    calorias_dia:number; 
+    imc:number; 
+    peso:number;
+    altura:number;
+    constructor(fecha:string, calorias_dia:number, imc:number, peso:number, altura:number){
+        this.fecha = fecha;
+        this.calorias_dia = calorias_dia;
+        this.imc = imc;
+        this.peso = peso;
+        this.altura = altura;
+    }
+}
+
+export class TorsoCliente{
+    fecha: string;
+    pectoral: number;
+    supracrestal: number;
+    subescapular: number;
+    supraespinal: number;
+    abdominal: number;
+    constructor(fecha:string, pectoral: number, supracrestal: number, subescapular: number, supraespinal: number, abdominal: number){
+        this.fecha = fecha;
+        this.pectoral = pectoral;
+        this.supracrestal = supracrestal;
+        this.subescapular = subescapular;
+        this.abdominal = abdominal;
+        this.supraespinal = supraespinal;
+    }
+}
+export class BrazoCliente{
+    fecha: string;
+    biceps: number;
+    tricep: number;
+    constructor(fecha:string, biceps: number, tricep:number){
+        this.fecha = fecha;
+        this.biceps = biceps;
+        this.tricep = tricep;
+    }   
+}
+
+export class PiernaCliente {
+    fecha: string;
+    medial_pierna: number;
+    frontal_muslo: number;
+    constructor(fecha: string, medial_pierna: number, frontal_muslo: number){
+        this.fecha = fecha;
+        this.medial_pierna = medial_pierna;
+        this.frontal_muslo = frontal_muslo;
+    }
+}
+
+export class menuDia {
+    dia: string;
+    id: number;
+    desayuno: string;
+    almuerzo:string;
+    cena: string;
+    constructor(dia: string, id: number, desayuno: string, almuerzo:string, cena: string){
+        this.dia = dia;
+        this.id = id;
+        this.desayuno = desayuno;
+        this.almuerzo = almuerzo;
+        this.cena = cena;
+    }
+}
+
+export class MenuOpcionesSobrantes{
+    id: number;
+    desayuno: string;
+    almuerzo:string;
+    cena: string;
+    constructor(id: number, desayuno: string, almuerzo:string, cena: string){
+        this.id = id;
+        this.desayuno = desayuno;
+        this.almuerzo = almuerzo;
+        this.cena = cena;
+    }
 }

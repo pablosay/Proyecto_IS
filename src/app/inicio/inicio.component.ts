@@ -41,7 +41,12 @@ export class InicioComponent implements OnInit {
         alert("Usuario o contraseña incorrecto");
       } else {
         this.sesion.usuarioIngresado(usuario, tipo_usuario);
-        this.router.navigateByUrl(tipo_usuario);
+        if(tipo_usuario=="admins"){
+          this.router.navigateByUrl(tipo_usuario);
+        } else {
+          this.router.navigateByUrl(tipo_usuario+ "/bienvenida");
+        }
+        
       }
       
     });

@@ -1,0 +1,19 @@
+<br>
+<p-table [value]="menu" responsiveLayout="scroll">
+    <ng-template pTemplate="caption">
+        Menu semanal
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Dia</th>
+            <th>Menu</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-menu>
+        <tr>
+            <td>{{menu.dia}}</td>
+            <td><p-tag styleClass="p-mr-2" severity="success" value='Desayuno'></p-tag> {{menu.desayuno}}  <p-tag styleClass="p-mr-2" severity="warning" value='Almuerzo'></p-tag> {{menu.almuerzo}} <p-tag styleClass="p-mr-2" severity="info" value='Cena'></p-tag> {{menu.cena}}</td>
+            <td><button pButton pRipple type="button" icon="pi pi-pencil" (click)="editar(menu)" class="p-button-rounded p-button-text"></button></td>
+        </tr>
+    </ng-template>
+</p-table>

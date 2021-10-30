@@ -1,0 +1,35 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<p-messages></p-messages> 
+<div class = "principal-container">
+    <div class = "segundo-contenedor">
+        <div class = "form" >
+            <div class="p-grid p-fluid"> 
+                <h1>Actualizar menu </h1>
+                <form [formGroup]="form" (ngSubmit)="actualizar()">
+                    <div class = "p-col-12 p-md-4">
+                        <div class = "div-phone">
+                            <span class="p-inputgroup-addon"><i> {{dia}} </i></span>
+                            <p-dropdown [options]="lista_dia" formControlName = "id" placeholder="Seleccione un menu" optionLabel = "id" optionValue = "id" [showClear]="true"> 
+                                <ng-template let-menu pTemplate="item">
+                                    <div> {{menu.id}} . {{menu.desayuno}} - {{menu.almuerzo}} - {{menu.cena}} </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" label="actualizar" [disabled]="!form.valid"></p-button>
+                    </div>
+                    <br>
+                    <div class="p-inputgroup">
+                        <p-button class = "boton" type = "input" (click) = "regresar()"> Regresar </p-button>
+                    </div> 
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

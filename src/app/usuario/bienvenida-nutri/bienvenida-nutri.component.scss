@@ -1,0 +1,39 @@
+.principal{
+    background-image: linear-gradient(rgba(48, 46, 46, 0.5), rgba(48, 46, 46, 0.5)), url("../../../assets/imagenes/bienvenida.jpg");
+    width: 100%;
+    height: 730px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.titulo{
+    font-family: 'Nanum Myeongjo', serif;
+    color: rgb(255, 255, 255);
+    font-size: 54px;
+}
+.subtitulo{
+    font-family: 'Nanum Myeongjo', serif;
+    color: rgb(168, 168, 168);
+    font-size: 24px;
+}
+.segundo-contenedor{
+    margin-left: 50%;
+    width: 40%;
+    height: 500px;
+    background-color: rgb(40, 45, 49);
+    border-radius: 4px;
+    box-shadow: rgb(36, 36, 36) 0px 20px 30px -10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

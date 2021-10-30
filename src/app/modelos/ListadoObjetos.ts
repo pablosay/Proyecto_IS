@@ -1,4 +1,4 @@
-import { Alimento, Cliente, Usuario, Datos, DatosBrazo, DatosGerneralesConsulta, DatosPierna, DatosTorso, Menu, MenuSemanal, MenuGeneral, DatosGeneralesNutri, MenuSemanalCliente } from "./Objetos";
+import { Alimento, Cliente, Usuario, Datos, DatosBrazo, DatosGerneralesConsulta, DatosPierna, DatosTorso, Menu, MenuSemanal, MenuGeneral, DatosGeneralesNutri, MenuSemanalCliente, perfilCliente, DatosCliente, TorsoCliente, BrazoCliente, PiernaCliente, menuDia, MenuOpcionesSobrantes } from "./Objetos";
 import { Nutricionista } from "./Objetos";
 
 export class RespuestaUsuarioLogIn{
@@ -152,3 +152,76 @@ export class ListadoMenusSemanales{
         this.menus = datos;
     } 
 }
+
+export class ListaPerfilCliente{
+    status: number;
+    message: string;
+    perfil: perfilCliente[];
+    constructor(status: number, message:string, datos: perfilCliente[]){
+        this.status = status,
+        this.message = message;
+        this.perfil = datos;
+    } 
+}
+export class listaDatosCliente{
+    status: number;
+    message: string;
+    datos: DatosCliente[];
+    constructor(status: number, message:string, datos: DatosCliente[]){
+        this.status = status;
+        this.message = message;
+        this.datos = datos;
+    }
+}
+export class listaTorso{
+    status: number;
+    message: string;
+    datos: TorsoCliente[];
+    constructor(status: number, message:string, datos: TorsoCliente[]){
+        this.status = status;
+        this.message = message;
+        this.datos = datos;
+    }
+}
+export class listaBrazo{
+    status: number;
+    message: string;
+    datos: BrazoCliente[];
+    constructor(status: number, message:string, datos: BrazoCliente[]){
+        this.status = status;
+        this.message = message;
+        this.datos = datos;
+    }
+}
+export class listaPierna{
+    status: number;
+    message: string;
+    datos: PiernaCliente[];
+    constructor(status: number, message:string, datos: PiernaCliente[]){
+        this.status = status;
+        this.message = message;
+        this.datos = datos;
+    }
+}
+export class menuDiaList{
+    status: number;
+    message: string;
+    menusemanal: menuDia[];
+    constructor(status: number, message:string, menusemanal: menuDia[]){
+        this.status = status;
+        this.message = message;
+        this.menusemanal = menusemanal;
+    }
+}
+ 
+export class menuSobrantesList{
+    status: number;
+    message: string;
+    menus: MenuOpcionesSobrantes[];
+    constructor(status: number, message:string, menus: MenuOpcionesSobrantes[]){
+        this.status = status;
+        this.message = message;
+        this.menus = menus;
+    }
+}
+

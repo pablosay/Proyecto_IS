@@ -3,15 +3,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FuncionesAuxService } from 'src/app/servicios/funciones-aux.service';
 import { ServicioBackendService } from 'src/app/servicios/servicio-backend.service';
 import { ServicioLoginService } from 'src/app/servicios/servicio-login.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.component.html',
-  styleUrls: ['./consulta.component.scss']
+  styleUrls: ['./consulta.component.scss'],
+  providers: [MessageService]
 })
 export class ConsultaComponent implements OnInit {
   form_consulta: FormGroup;
-  constructor(private backend: ServicioBackendService, private data_usuario: ServicioLoginService, private fb: FormBuilder, private funciones:FuncionesAuxService) {
+  constructor(private backend: ServicioBackendService, private data_usuario: ServicioLoginService, private fb: FormBuilder, private funciones:FuncionesAuxService, public messageService:MessageService) {
     this.form_consulta = this.fb.group({
       usuario: ["", [Validators.required, Validators.pattern('(C)[1-9]{1,4}')]],
       sexo: ["", [Validators.required]],
@@ -55,14 +57,26 @@ export class ConsultaComponent implements OnInit {
     let medial_pierna:number = this.form_consulta.controls['medial_pierna'].value;
     let frontal_muslo:number = this.form_consulta.controls['frontal_muslo'].value;
 
-    this.backend.NuevaConsulta(calorias_dia, imc, peso, altura, tricep, pectoral, supracrestal, subescapular, biceps, medial_pierna, frontal_muslo, abdominal, supraespinal, cliente, this.data_usuario.getUsuario()).subscribe(response => {
-      this.backend.ActualizarDatosNutricionales(calorias_dia, imc, peso, altura, cliente).subscribe(response2 => {
-        if(response.status == 1 && response2.status == 1){
-          alert("Se ingreso correctamente");
-        } else {
-          alert("Error");
+    var es_cliente = 0;
+    this.backend.ListarClientes(this.data_usuario.getUsuario()).subscribe(response => {
+      for(let usuario of response.clientes){
+        if(usuario.usuario == cliente){
+          es_cliente = 1;
         }
-      })
+      }
+      if(es_cliente == 1){
+        this.backend.NuevaConsulta(calorias_dia, imc, peso, altura, tricep, pectoral, supracrestal, subescapular, biceps, medial_pierna, frontal_muslo, abdominal, supraespinal, cliente, this.data_usuario.getUsuario()).subscribe(response => {
+          this.backend.ActualizarDatosNutricionales(calorias_dia, imc, peso, altura, cliente).subscribe(response2 => {
+            if(response.status == 1 && response2.status == 1){
+              this.messageService.add({severity:'success', summary: 'Se ingreso correctamente', detail:''});
+            } else {
+              this.messageService.add({severity:'error', summary: 'Error en la base de datos', detail:''});
+            }
+          })
+        });
+      } else if(es_cliente == 0){
+        this.messageService.add({severity:'error', summary: 'No tiene acceso a este cliente', detail:''});
+      }   
     });
     this.form_consulta.reset();
   }

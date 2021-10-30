@@ -1,20 +1,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-<div class = "principal-container" >  
-    <div class = "segundo-contenedor">
-        <div class = "form">
-            <br>
-            <div class = "titulo">
-                <img src = "./../../../assets/imagenes/perfil.png"> 
-                <label class = "nombre"> Nut. {{perfil.nombre}}</label> 
-            </div> <br>
-            <label class = "datos"> Usuario: {{usuario}}</label> <br>
-            <label class = "datos"> Telefono: {{perfil.telefono}}</label> <br>
-            <label class = "datos"> Colegiado:  {{perfil.colegiado}}</label> <br>
-            <label class = "datos"> Descripción: {{perfil.descripcion}} </label>
-            <br>
-            <br>
-        </div>
-    </div>
+
+<div class = "principal-container"> 
+    <p-card header="{{perfil.nombre}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="./../../../assets/imagenes/fondo.jpeg">
+        </ng-template>
+        <img class="perfil"  src="./../../../assets/imagenes/perfil.png">
+        <ng-template pTemplate="footer">
+            <label> Usuario: {{usuario}} </label> <br><br>
+            <label> Telefono: {{perfil.telefono}} </label> <br><br>
+            <label> Colegiado: {{perfil.colegiado}} </label> <br><br>
+            <label> Descripción: {{perfil.descripcion}} </label> <br> <br>
+        </ng-template>
+    </p-card>
 </div>

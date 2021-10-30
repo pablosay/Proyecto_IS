@@ -38,6 +38,16 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { DatosNutricionalesComponent } from './nutri/datos-nutricionales/datos-nutricionales.component';
 import { ListaMenusComponent } from './nutri/lista-menus/lista-menus.component';
+import { AlimentacionComponent } from './usuario/alimentacion/alimentacion.component';
+import { PerfilcComponent } from './usuario/perfilc/perfilc.component';
+import { ProgresoComponent } from './usuario/progreso/progreso.component';
+import {CardModule} from 'primeng/card';
+import {RippleModule} from 'primeng/ripple';
+import { ActualizarDatosComponent } from './usuario/actualizar-datos/actualizar-datos.component';
+import {ChartModule} from 'primeng/chart';
+import { EditarMenuComponent } from './usuario/editar-menu/editar-menu.component';
+import { BienvenidaClienteComponent } from './nutri/bienvenida-cliente/bienvenida-cliente.component';
+import { BienvenidaNutriComponent } from './usuario/bienvenida-nutri/bienvenida-nutri.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +67,14 @@ import { ListaMenusComponent } from './nutri/lista-menus/lista-menus.component';
     ListarConsultasComponent,
     MenuSemanalComponent,
     DatosNutricionalesComponent,
-    ListaMenusComponent
+    ListaMenusComponent,
+    AlimentacionComponent,
+    PerfilcComponent,
+    ProgresoComponent,
+    ActualizarDatosComponent,
+    EditarMenuComponent,
+    BienvenidaClienteComponent,
+    BienvenidaNutriComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +97,10 @@ import { ListaMenusComponent } from './nutri/lista-menus/lista-menus.component';
     FieldsetModule,
     DropdownModule,
     MessageModule,
-    MessagesModule
+    MessagesModule,
+    CardModule,
+    RippleModule,
+    ChartModule
   ],
   providers: [MessageModule, MessagesModule],
   bootstrap: [AppComponent]

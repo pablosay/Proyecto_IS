@@ -156,7 +156,12 @@ module.exports = (app) => {
     });
     //Listar datos nutricionales recientes en general
     app.get('/nutris/cliente/datosgenerales/:nutri', (req,res) => {
-        let query = `SELECT D.cliente, C.nombre, D.calorias_dia, D.imc, D.peso, D.altura FROM datos_nutricionales D, clientes C WHERE C.usuario = D.cliente AND C.nutri = '${req.params.nutri}'  ORDER BY D.cliente;`;
+        let query = `SELECT E.cliente,  C.nombre, E.calorias_dia, E.imc, E.peso, E.altura `
+        + `FROM (SELECT D.cliente,  D.calorias_dia, D.imc, D.peso, D.altura `
+        +`FROM (SELECT MAX(numero) AS mx , cliente `
+        +`FROM datos_nutricionales `
+        +`GROUP BY cliente) T JOIN datos_nutricionales D ON T.cliente = D.cliente AND D.numero = T.mx ) E, clientes C `
+        +`WHERE C.usuario = E.cliente AND C.nutri = '${req.params.nutri}' `;
         conn.query(query, (err, rows, cols) => {
             if(err){
                 res.json({status: 0, mensaje: "Error en la base de datos"});
@@ -235,6 +240,7 @@ module.exports = (app) => {
             }
         });
     });
+    
     /**
      * 
      * //Listar menu semanal por cliente

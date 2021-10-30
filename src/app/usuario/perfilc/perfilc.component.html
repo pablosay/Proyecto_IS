@@ -1,0 +1,23 @@
+<div class = "principal-container"> 
+    <p-card header="{{nombre}}" subheader="{{usuario}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="./../../../assets/imagenes/fondo.jpeg">
+        </ng-template>
+        <img class="perfil"  src="./../../../assets/imagenes/perfil2.png">
+        <ng-template pTemplate="footer">
+            <label> Telefono: {{telefono}} </label> <br><br>
+            <label> Sexo: {{sexo}} </label> <br><br>
+            <label> Peso: {{peso}} </label> <br><br>
+            <label> Altura: {{altura}} </label> <br> <br>
+            <label> IMC:
+                <p-tag *ngIf = "18 > imc " styleClass="p-mr-2" value="{{imc}}"></p-tag>
+                <p-tag *ngIf = "(25 > imc) && (imc > 18.5) " styleClass="p-mr-2" severity="success" value="{{imc}}"></p-tag>
+                <p-tag *ngIf = "(30 > imc) && (imc > 25.1)" styleClass="p-mr-2" severity="info" value="{{imc}}"></p-tag>
+                <p-tag *ngIf = "(40 > imc)&&  (imc> 30.1)" styleClass="p-mr-2" severity="warning" value="{{imc}}"></p-tag>
+                <p-tag *ngIf = "imc> 40 " severity="danger" value="Danger"></p-tag>
+            </label> <br> <br>
+            <label> Calorias por dia: {{calorias}} kCal</label> <br><br>
+            <label> Nut. {{nutri}} </label><br><br>
+        </ng-template>
+    </p-card>
+</div>

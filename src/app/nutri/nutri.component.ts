@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router, RouterLink} from '@angular/router';
 import {MenuItem, PrimeIcons} from 'primeng/api';
 import { ServicioLoginService } from '../servicios/servicio-login.service';
 @Component({
@@ -96,7 +96,7 @@ export class NutriComponent implements OnInit {
       label: 'Cerrar sesión',
       icon: PrimeIcons.POWER_OFF,
       command: () => this.salir()
-    }]
+    }];
   }
   
   salir(){

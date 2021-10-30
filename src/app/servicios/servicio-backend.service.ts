@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Nutricionistas, Clientes,RespuestaUsuarioLogIn, Alimentos, DatosPorCliente, DatosGerneralesConsultaLista, DatosTorsoList, DatosBrazoList, DatosPiernaList, Menus, MenusSemanal, MenusGeneral, ListaDatosGeneralesNutri, ListadoMenusSemanales } from '../modelos/ListadoObjetos';
+import { Nutricionistas, Clientes,RespuestaUsuarioLogIn, Alimentos, DatosPorCliente, DatosGerneralesConsultaLista, DatosTorsoList, DatosBrazoList, DatosPiernaList, Menus, MenusSemanal, MenusGeneral, ListaDatosGeneralesNutri, ListadoMenusSemanales, ListaPerfilCliente, listaDatosCliente, listaTorso, listaPierna, listaBrazo, menuDiaList, menuSobrantesList } from '../modelos/ListadoObjetos';
 import { AlimentoBody, ClienteBody, ConsultaBody, DatosNutricionalesBody, MenuBody, MenuSBody, NutriBody } from '../modelos/Bodies';
 import { GuardarRespuesta } from '../modelos/GuardarRespuesta';
 const BE_API = environment.urlBackEnd;
@@ -113,5 +113,42 @@ export class ServicioBackendService {
   listaMenuSemanalClientes(nutri:string){
     let url:string = BE_API + "/nutris/listarMenuSemanal/nutri/"+nutri;
     return this.http.get<ListadoMenusSemanales>(url, httpOptions);
+  }
+  perfilCliente(usuario:string){
+    let url:string = BE_API + "/cliente/perfil/" +usuario;
+    return this.http.get<ListaPerfilCliente>(url, httpOptions);
+  }
+  ActualizarDatosCliente(calorias_dia: number, imc: number, peso: number, altura: number, cliente: string){
+    let url:string = BE_API + "/cliente/datosnutricionales";
+    let body:DatosNutricionalesBody = new DatosNutricionalesBody(calorias_dia, imc, peso, altura,cliente);
+    return this.http.post<GuardarRespuesta>(url, body ,httpOptions);
+  }
+  listaDatosCliente(usuario:string){
+    let url:string = BE_API + "/cliente/progreso/datos/"+usuario;
+    return this.http.get<listaDatosCliente>(url,httpOptions);
+  }
+  DatosTorsoCliente(usuario:string){
+    let url:string = BE_API + "/cliente/progreso/datos/torso/"+ usuario;
+    return this.http.get<listaTorso>(url, httpOptions);
+  }
+  DatosPiernaCliente(usuario:string){
+    let url:string = BE_API + "/cliente/progreso/datos/pierna/"+usuario;
+    return this.http.get<listaPierna>(url,httpOptions);
+  }
+  DatosBrazosCliente(usuario:string){
+    let url:string = BE_API + "/cliente/progreso/datos/brazo/"+usuario;
+    return this.http.get<listaBrazo>(url,httpOptions);
+  }
+  MenuSemanalCliente(usuario:string){
+    let url:string = BE_API + "/cliente/menuSemanal/"+usuario;
+    return this.http.get<menuDiaList>(url,httpOptions);
+  }
+  MenusNoSemanal(usuario: string){
+    let url:string = BE_API + "/cliente/menuSemanal/menusopciones/"+usuario;
+    return this.http.get<menuSobrantesList>(url,httpOptions);
+  }
+  actualizarMenu(cliente:string, dia:string, id: number){
+    let url: string = BE_API + "/cliente/actualizarMenuSemanal/cliente/"+cliente+"/dia/"+dia+"/menu/"+id;
+    return this.http.put<GuardarRespuesta>(url, httpOptions);
   }
 }

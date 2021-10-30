@@ -1,0 +1,20 @@
+<div class = "contenedor"> 
+    <div class = "table">
+        <p-chart type="line" [data]="data_peso" [options]="options"></p-chart>
+    </div>
+    <div class = "table"> 
+        <p-chart type="line" [data]="data_altura" [options]="options"></p-chart>
+    </div>
+    <div class = "table"> 
+        <p-chart type="line" [data]="data_imc" [options]="options"></p-chart>
+    </div>
+</div>
+<div class = "contenedor"> 
+    <div class = "table">
+        <p-chart type="polarArea" [data]="grafica_extremidades" [options]="options2"></p-chart>
+    </div>
+    <div class = "table"> 
+        <p-chart type="polarArea" [data]="grafica_torso" [options]="options2"></p-chart>
+    </div>
+</div>
+
