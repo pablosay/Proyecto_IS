@@ -7,8 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install",
-    "postinstall": "ng build --d"
+    "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install"
   },
   "private": true,
   "dependencies": {
