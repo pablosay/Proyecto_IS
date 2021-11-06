@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlBackEnd: 'http://localhost:5000'
+  urlBackEnd: 'https://wc-proyecto-2021-is.herokuapp.com'
 };
