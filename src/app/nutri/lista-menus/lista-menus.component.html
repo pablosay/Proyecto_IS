@@ -1,4 +1,3 @@
-<h1>Menus por cliente</h1>
 <br>
 <p-table 
     #dt1 [value]="menus" 
@@ -13,13 +12,15 @@
     responsiveLayout="scroll"
 >
     <ng-template pTemplate="caption">
+        Menus por cliente<br>
+        <br>
         <div class="p-d-flex">
             <span class="p-input-icon-left p-ml-auto">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar por cliente" />
             </span>
         </div>
-    </ng-template>
+    </ng-template>s
     <ng-template pTemplate="header">
         <tr>
             <th>
