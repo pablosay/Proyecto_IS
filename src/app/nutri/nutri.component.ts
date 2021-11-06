@@ -100,6 +100,7 @@ export class NutriComponent implements OnInit {
   }
   
   salir(){
+    localStorage.removeItem('token');
     this.login.cerrarSesion();
     this.router.navigateByUrl("");
   }

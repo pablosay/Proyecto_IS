@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  urlBackEnd: 'https://wc-proyecto-2021-is.herokuapp.com',
+  urlBackEnd: 'http://localhost:3000',
   production: false
 };
 

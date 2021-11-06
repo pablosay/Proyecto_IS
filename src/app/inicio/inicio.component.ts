@@ -40,6 +40,7 @@ export class InicioComponent implements OnInit {
       if(datos_usuario.usuario.length == 0){
         alert("Usuario o contraseña incorrecto");
       } else {
+        localStorage.setItem("token", datos_usuario.token);
         this.sesion.usuarioIngresado(usuario, tipo_usuario);
         if(tipo_usuario=="admins"){
           this.router.navigateByUrl(tipo_usuario);

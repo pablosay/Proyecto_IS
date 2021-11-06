@@ -5,10 +5,12 @@ export class RespuestaUsuarioLogIn{
     status: number;
     message: string;
     usuario: Usuario[];
-    constructor(status:number, message: string, usuario: Usuario[]){
+    token: string;
+    constructor(status:number, message: string, usuario: Usuario[], token:string){
         this.status = status;
         this.message = message;
         this.usuario = usuario;
+        this.token = token;
     }
 }
 export class Nutricionistas{

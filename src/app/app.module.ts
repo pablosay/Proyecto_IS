@@ -48,6 +48,7 @@ import {ChartModule} from 'primeng/chart';
 import { EditarMenuComponent } from './usuario/editar-menu/editar-menu.component';
 import { BienvenidaClienteComponent } from './nutri/bienvenida-cliente/bienvenida-cliente.component';
 import { BienvenidaNutriComponent } from './usuario/bienvenida-nutri/bienvenida-nutri.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +103,7 @@ import { BienvenidaNutriComponent } from './usuario/bienvenida-nutri/bienvenida-
     RippleModule,
     ChartModule
   ],
-  providers: [MessageModule, MessagesModule],
+  providers: [MessageModule, MessagesModule, JwtHelperService, {provide: JWT_OPTIONS, useValue: JWT_OPTIONS}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

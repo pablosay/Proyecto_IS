@@ -36,7 +36,8 @@ export class AdminComponent implements OnInit {
 
   salir(){
     this.login.cerrarSesion();
-    this.router.navigateByUrl("/inicio")
+    localStorage.removeItem('token');
+    this.router.navigateByUrl("/inicio");
   }
 
 }

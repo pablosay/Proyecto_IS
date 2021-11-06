@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { IngresarNutriComponent } from './admin/ingresar-nutri/ingresar-nutri.component';
 import { ListaNutrisComponent } from './admin/lista-nutris/lista-nutris.component';
+import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './inicio/inicio.component';
 import { AlimentosComponent } from './nutri/alimentos/alimentos.component';
 import { AsignarAlimentosComponent } from './nutri/asignar-alimentos/asignar-alimentos.component';
@@ -29,33 +30,33 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'inicio'},
   {path: 'admins', component: AdminComponent,
     children: [
-      {path:'ingresarNutri', component: IngresarNutriComponent},
-      {path: 'listarNutris', component: ListaNutrisComponent}]},
+      {path:'ingresarNutri', component: IngresarNutriComponent, canActivate: [AuthGuard]}, 
+      {path: 'listarNutris', component: ListaNutrisComponent}], canActivate: [AuthGuard]},
   {path: 'clientes', component: UsuarioComponent,
     children: [
-      {path: 'bienvenida', component: BienvenidaNutriComponent},
-      {path: 'perfilCliente', component: PerfilcComponent},
-      {path: 'alimentacion', component: AlimentacionComponent},
-      {path: 'progreso', component: ProgresoComponent},
-      {path: 'actualizarDatos', component: ActualizarDatosComponent},
-      {path: 'editarmenu', component: EditarMenuComponent}
-    ]
+      {path: 'bienvenida', component: BienvenidaNutriComponent, canActivate: [AuthGuard]},
+      {path: 'perfilCliente', component: PerfilcComponent, canActivate: [AuthGuard]},
+      {path: 'alimentacion', component: AlimentacionComponent, canActivate: [AuthGuard]},
+      {path: 'progreso', component: ProgresoComponent, canActivate: [AuthGuard]},
+      {path: 'actualizarDatos', component: ActualizarDatosComponent, canActivate: [AuthGuard]},
+      {path: 'editarmenu', component: EditarMenuComponent, canActivate: [AuthGuard]}
+    ], canActivate: [AuthGuard]
   },
   {path: 'nutris', component: NutriComponent,
     children: [
-      {path: 'bienvenida', component: BienvenidaClienteComponent},
-      {path: 'perfil', component: PerfilComponent},
-      {path: 'clientes', component: ClientesComponent},
-      {path: 'ingresarCliente', component: IngresarClienteComponent},
-      {path: 'alimentos', component: AlimentosComponent},
-      {path: 'consulta', component: ConsultaComponent},
-      {path: 'listarAlimentos', component: ListarAlimentosComponent},
-      {path: 'asignarAlimentos', component: AsignarAlimentosComponent}, 
-      {path: 'listarconsultas', component: ListarConsultasComponent},
-      {path: 'menuSemanal', component: MenuSemanalComponent},
-      {path: 'datosnutricionales', component: DatosNutricionalesComponent},
-      {path: 'listarMenus', component: ListaMenusComponent}
-    ]
+      {path: 'bienvenida', component: BienvenidaClienteComponent, canActivate: [AuthGuard]},
+      {path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+      {path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard]},
+      {path: 'ingresarCliente', component: IngresarClienteComponent, canActivate: [AuthGuard]},
+      {path: 'alimentos', component: AlimentosComponent, canActivate: [AuthGuard]},
+      {path: 'consulta', component: ConsultaComponent, canActivate: [AuthGuard]},
+      {path: 'listarAlimentos', component: ListarAlimentosComponent, canActivate: [AuthGuard]},
+      {path: 'asignarAlimentos', component: AsignarAlimentosComponent, canActivate: [AuthGuard]}, 
+      {path: 'listarconsultas', component: ListarConsultasComponent, canActivate: [AuthGuard]},
+      {path: 'menuSemanal', component: MenuSemanalComponent, canActivate: [AuthGuard]},
+      {path: 'datosnutricionales', component: DatosNutricionalesComponent, canActivate: [AuthGuard]},
+      {path: 'listarMenus', component: ListaMenusComponent, canActivate: [AuthGuard]}
+    ] , canActivate: [AuthGuard]
   }
 ]
 
