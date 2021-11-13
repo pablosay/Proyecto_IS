@@ -59,16 +59,24 @@ export class MenuSemanalComponent implements OnInit {
         }
       }
       if(es_cliente == 1){
-        this.backend.ListarMenus(usuario).subscribe(data => {
-          this.lista_lunes = data.menus;
-          this.lista_martes = data.menus;
-          this.lista_miercoles = data.menus;
-          this.lista_jueves = data.menus;
-          this.lista_viernes = data.menus;
-          this.lista_sabado = data.menus;
-          this.lista_domingo = data.menus;
+        this.backend.MenuSemanalCliente(this.data_user.getUsuario()).subscribe( response2 => {
+          if(response2.menusemanal.length != 0){
+            this.backend.ListarMenus(usuario).subscribe(data => {
+              this.lista_lunes = data.menus;
+              this.lista_martes = data.menus;
+              this.lista_miercoles = data.menus;
+              this.lista_jueves = data.menus;
+              this.lista_viernes = data.menus;
+              this.lista_sabado = data.menus;
+              this.lista_domingo = data.menus;
+            });
+            this.usuario_seleccionado = true;
+          } else {
+            this.messageService.add({severity:'warn', summary: 'Ya tiene asignado un menu', detail:''});
+            this.usuario_seleccionado = false;
+          }
         });
-        this.usuario_seleccionado = true;
+        
       } else {
         this.messageService.add({severity:'error', summary: 'No tiene acceso a este cliente', detail:''});
         this.usuario_seleccionado = false;
