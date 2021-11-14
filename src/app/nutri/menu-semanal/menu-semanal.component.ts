@@ -59,8 +59,8 @@ export class MenuSemanalComponent implements OnInit {
         }
       }
       if(es_cliente == 1){
-        this.backend.MenuSemanalCliente(this.data_user.getUsuario()).subscribe( response2 => {
-          console.log(response2.menusemanal.length);
+        this.backend.MenuSemanalCliente(usuario).subscribe( response2 => {
+          console.log(response2.menusemanal);
           if(response2.menusemanal.length == 0){
               this.backend.ListarMenus(usuario).subscribe(data => {
                 this.lista_lunes = data.menus;

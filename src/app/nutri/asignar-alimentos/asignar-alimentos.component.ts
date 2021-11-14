@@ -54,26 +54,30 @@ export class AsignarAlimentosComponent implements OnInit {
     let cal_alm: number = 0;
     let cal_cena: number = 0;
 
-    for(var comida of this.lista_desayunos){
-      if(comida.nombre = desayuno){
+    for(let comida of this.lista_desayunos){
+      if(comida.nombre == desayuno){
         cal_des = comida.calorias;
+        console.log("des:"+cal_des);
       }
     }
 
-    for(var comida of this.lista_almuerzos){
-      if(comida.nombre = almuerzo){
+    for(let comida of this.lista_almuerzos){
+      if(comida.nombre == almuerzo){
         cal_alm = comida.calorias;
+        console.log("a:"+cal_alm);
       }
     }
 
-    for(var comida of this.lista_cenas){
-      if(comida.nombre = cena){
+    for(let comida of this.lista_cenas){
+      if(comida.nombre == cena){
         cal_cena = comida.calorias;
+        console.log("cen:"+cal_cena);
       }
     }
 
-    var cal_total:number = cal_alm + cal_cena + cal_des;
-    let total_calorias = 0;
+    var cal_total = cal_alm + cal_cena + cal_des;
+    console.log(cal_total);
+    var total_calorias = 0;
     var es_cliente = 0;
 
     this.backend.ListarClientes(this.data_user.getUsuario()).subscribe(response => {
@@ -86,39 +90,48 @@ export class AsignarAlimentosComponent implements OnInit {
       }
 
       if(es_cliente == 1){
+
+        
         
         this.backend.DatosPorCliente(cliente).subscribe(data => {
           total_calorias = data.datos[0].calorias_dia;
-          console.log(cal_total);
-          console.log(total_calorias);
           if(cal_total < total_calorias){
             this.backend.GuardarMenu(desayuno, almuerzo, cena, cliente).subscribe(data => {
               if(data.status == 1){
                 this.messageService.add({severity:'success', summary: 'Se ingreso correctamente', detail:''});
-                this.router.navigate(['asignarAlimentos']);
               } else {
+                this.form_menu.reset();
+                this.backend.ListarAlimentoTipo('D').subscribe(data=> {
+                  this.lista_desayunos = data.alimentos;
+                });
+                this.backend.ListarAlimentoTipo('A').subscribe(data=> {
+                  this.lista_almuerzos = data.alimentos;
+                });
+                this.backend.ListarAlimentoTipo('C').subscribe(data => {
+                  this.lista_cenas = data.alimentos;
+                });
                 this.messageService.add({severity:'error', summary: 'Error al ingresar', detail:''});
               }
             });
           } else {
+            console.log(cal_total);
             this.messageService.add({severity:'error', summary: 'Sobrepasa las calorias', detail:''});
+            this.form_menu.reset();
+            this.backend.ListarAlimentoTipo('D').subscribe(data=> {
+              this.lista_desayunos = data.alimentos;
+            });
+            this.backend.ListarAlimentoTipo('A').subscribe(data=> {
+              this.lista_almuerzos = data.alimentos;
+            });
+            this.backend.ListarAlimentoTipo('C').subscribe(data => {
+              this.lista_cenas = data.alimentos;
+            });
           }
+          cal_total = 0;
         });
       } else if(es_cliente == 0){
         this.messageService.add({severity:'error', summary: 'No tiene acceso a este cliente', detail:''});
       }   
     });
-
-    this.form_menu.reset();
-    this.backend.ListarAlimentoTipo('D').subscribe(data=> {
-      this.lista_desayunos = data.alimentos;
-    });
-    this.backend.ListarAlimentoTipo('A').subscribe(data=> {
-      this.lista_almuerzos = data.alimentos;
-    });
-    this.backend.ListarAlimentoTipo('C').subscribe(data => {
-      this.lista_cenas = data.alimentos;
-    });
-
   }
 }
