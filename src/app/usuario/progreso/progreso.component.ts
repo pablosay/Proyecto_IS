@@ -33,7 +33,7 @@ export class ProgresoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.backend.listaDatosCliente("C6").subscribe(data => {
+    this.backend.listaDatosCliente(this.data_user.getUsuario()).subscribe(data => {
 
       for(let datos of data.datos){
         this.fecha.push(datos.fecha.substring(0,10));
