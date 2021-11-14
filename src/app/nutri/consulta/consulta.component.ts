@@ -15,7 +15,7 @@ export class ConsultaComponent implements OnInit {
   form_consulta: FormGroup;
   constructor(private backend: ServicioBackendService, private data_usuario: ServicioLoginService, private fb: FormBuilder, private funciones:FuncionesAuxService, public messageService:MessageService) {
     this.form_consulta = this.fb.group({
-      usuario: ["", [Validators.required, Validators.pattern('(C)[1-9]{1,4}')]],
+      usuario: ["", [Validators.required, Validators.pattern('(C)[0-9]{1,4}')]],
       sexo: ["", [Validators.required]],
       edad: ["", [Validators.required, Validators.pattern('[0-9]{1,2}')]],
       peso: ["", [Validators.required, Validators.pattern('[0-9]{1,3}')]],
