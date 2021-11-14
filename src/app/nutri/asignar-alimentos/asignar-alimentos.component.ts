@@ -23,7 +23,7 @@ export class AsignarAlimentosComponent implements OnInit {
     this.lista_cenas = [];
 
     this.form_menu = this.fb.group({
-      usuario: ["", [Validators.required, Validators.pattern('[C][1-9]{1,4}')]],
+      usuario: ["", [Validators.required, Validators.pattern('[C][0-9]{1,4}')]],
       desayuno: ["", Validators.required],
       almuerzo: ["", Validators.required],
       cena: ["", Validators.required]

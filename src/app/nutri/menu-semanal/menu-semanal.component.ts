@@ -33,7 +33,7 @@ export class MenuSemanalComponent implements OnInit {
     this.lista_sabado = [];
     this.lista_domingo = [];
     this.form_usuario = this.fb.group({
-      usuario: ["", [Validators.required, Validators.pattern('[C][1-9]{1,4}')]]
+      usuario: ["", [Validators.required, Validators.pattern('[C][0-9]{1,4}')]]
     });
     this.form_menu = this.fb.group({
       lun: ["", Validators.required],

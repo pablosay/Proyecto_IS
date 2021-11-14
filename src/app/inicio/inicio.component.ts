@@ -14,7 +14,7 @@ export class InicioComponent implements OnInit {
   constructor(private sesion: ServicioLoginService ,private router: Router, private fb: FormBuilder, private backend: ServicioBackendService) {
 
     this.form_inicio_sesion = this.fb.group({
-      usuario: ['', [Validators.required, Validators.maxLength(5) , Validators.pattern('(A|N|C)[1-9]{1,4}')]],
+      usuario: ['', [Validators.required, Validators.maxLength(5) , Validators.pattern('(A|N|C)[0-9]{1,4}')]],
       pw: ['', Validators.required]
     })
 
