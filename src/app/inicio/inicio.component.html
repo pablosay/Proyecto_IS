@@ -1,38 +1,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-<div> 
-</div>
-<!-- 
-<div class = "main-container"> 
-    <div class = 'p-d-flex'> 
-        <div class = "div-texto-bienvenida">
-            <div>
-                <h1 class = "titles"> WC NUTRITION</h1>
-            </div>
+
+<div class = "container">
+    <div class = "box1 flex min-h-screen justify-content-center align-items-center p-3 mt-3">
+        <div> 
+            <h1 class = "titles"> WC Nutrition</h1>
         </div>
-        <p-divider layout= "vertical">
-        </p-divider>
-        <div class="p-field">
-            <div class= "form-div">
-                <form [formGroup]="form_inicio_sesion" (ngSubmit)="intentarIngresar()"> 
-                    <span class = "p-float-label">
-                        <input pInputText id="username" type="text"  formControlName="usuario"/>
-                        <label class = "label-inputs" for = "username"> Username</label>
-                    </span>
-                    <br>
-                    <br>
-                    <span class = "p-float-label">
-                        <input pInputText id="password" type="password"  formControlName="pw"/>
-                        <label class = "label-inputs" for ="password"> Password</label>
-                    </span>
-                    <br>
-                    <p-button type = "input" class = "login" [disabled]="!form_inicio_sesion.valid" label="Login"  ></p-button>
-                </form>
-            </div>
+    </div>
+    <div class = "box2 flex min-h-screen justify-content-center align-items-center p-3 mt-3">
+        <div class= "flex justify-content-center align-content-center w-full ">
+            <form [formGroup]="form_inicio_sesion" (ngSubmit)="intentarIngresar()">
+                <span>
+                    <p class = "instructions"> Inicia sesión si eres un administrador, nutricionista o cliente. </p>
+                </span>
+                <span>
+                    <input pInputText class = "w-full mb-3" id="username" type="text" placeholder="Correo electronico" formControlName="usuario"/>
+                </span>
+                <span>
+                    <input pInputText class = "w-full mb-3" id="password" type="text" placeholder="Contraseña" formControlName="pw"/>
+                </span>
+                <p-button type = "input" [disabled]="!form_inicio_sesion.valid" label="Login"  ></p-button>
+            </form>
         </div>
     </div>
 </div>
--->
 
 <router-outlet> </router-outlet>
