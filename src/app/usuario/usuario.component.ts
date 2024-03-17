@@ -15,36 +15,46 @@ export class UsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = [{
-      label: 'Perfil',
+    this.items = [
+      {
+        label: 'Welcome',
+        icon: PrimeIcons.HOME,
+        routerLink: 'bienvenida'
+      },
+
+      {
+      label: 'Profile',
       icon: PrimeIcons.ID_CARD,
       routerLink: 'perfilCliente'
     },  
     {
-      label: 'Progreso',
+      label: 'Progress',
       icon: PrimeIcons.USERS,
       items: [
         {
-          label: 'Actualizar datos nutricionales',
+          label: 'Update nutrition data',
           icon: PrimeIcons.CHECK,
           routerLink: 'actualizarDatos'
         },{
-          label: 'Estadistica',
+          label: 'Graphs',
           icon: PrimeIcons.CHART_LINE,
           routerLink: 'progreso' 
         }
       ]
     },
     {
-      label: 'Alimentos',
+      label: 'Food',
       icon: PrimeIcons.APPLE,
       routerLink: 'alimentacion'
     },
     {
-      label: 'Cerrar sesión',
+      label: 'Log Off',
       icon: PrimeIcons.POWER_OFF,
       command: () => this.salir()
-    }]
+    },
+    
+
+  ]
   }
   salir(){
     localStorage.removeItem('token');

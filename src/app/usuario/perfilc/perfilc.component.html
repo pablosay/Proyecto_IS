@@ -1,23 +1,83 @@
 <div class = "principal-container"> 
-    <p-card header="{{nombre}}" subheader="{{usuario}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
+
+    <p-card [style]="{width: '400px'}" styleClass="p-card-shadow">
+        
         <ng-template pTemplate="header">
-            <img alt="Card" src="./../../../assets/imagenes/fondo.jpeg">
+
+            <img alt="Card" src="./../../../assets/imagenes/fondo.jpeg" >
+        
         </ng-template>
-        <img class="perfil"  src="./../../../assets/imagenes/perfil2.png">
+
+        <img class="perfil"  src="./../../../assets/imagenes/perfil2.png" style="height: 70px; width: 70px;">
+
         <ng-template pTemplate="footer">
-            <label> Telefono: {{telefono}} </label> <br><br>
-            <label> Sexo: {{sexo}} </label> <br><br>
-            <label> Peso: {{peso}} </label> <br><br>
-            <label> Altura: {{altura}} </label> <br> <br>
-            <label> IMC:
-                <p-tag *ngIf = "18 > imc " styleClass="p-mr-2" value="{{imc}}"></p-tag>
-                <p-tag *ngIf = "(25 > imc) && (imc > 18.5) " styleClass="p-mr-2" severity="success" value="{{imc}}"></p-tag>
-                <p-tag *ngIf = "(30 > imc) && (imc > 25.1)" styleClass="p-mr-2" severity="info" value="{{imc}}"></p-tag>
-                <p-tag *ngIf = "(40 > imc)&&  (imc> 30.1)" styleClass="p-mr-2" severity="warning" value="{{imc}}"></p-tag>
-                <p-tag *ngIf = "imc> 40 " severity="danger" value="Danger"></p-tag>
-            </label> <br> <br>
-            <label> Calorias por dia: {{calorias}} kCal</label> <br><br>
-            <label> Nut. {{nutri}} </label><br><br>
+
+            <div class = "grid">
+
+                <div class = "col">
+
+                    <label style="font-size:xx-large;"> Steven Gerard </label>
+                    
+                </div>
+
+            </div>
+            
+            <div class = "grid">
+
+                <div class = "col">
+
+                    <label> 9999-9999 </label>
+                    
+                </div>
+
+            </div>
+            <div class = "grid mt-3">
+
+                <div class = "col">
+
+                    <label> Male </label>
+                    
+                </div>
+
+                <div class = "col">
+
+                    <label> 60kg  </label>
+                    
+                </div>
+
+                <div class = "col">
+
+                    <label> 160cm </label>
+                    
+                </div>
+
+                <div class = "col">
+                    
+                    <label> IMC 
+                        <p-tag *ngIf = "18 > imc " styleClass="p-mr-2" value="{{imc}}"></p-tag>
+                        <p-tag *ngIf = "(25 > imc) && (imc > 18.5) " styleClass="p-mr-2" severity="success" value="{{imc}}"></p-tag>
+                        <p-tag *ngIf = "(30 > imc) && (imc > 25.1)" styleClass="p-mr-2" severity="info" value="{{imc}}"></p-tag>
+                        <p-tag *ngIf = "(40 > imc)&&  (imc> 30.1)" styleClass="p-mr-2" severity="warning" value="{{imc}}"></p-tag>
+                        <p-tag *ngIf = "imc> 40 " severity="danger" value="Danger"></p-tag>
+                    </label> 
+
+                </div>
+
+                <div class = "col">
+
+                    <label> 2500 KCal </label>
+                    
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+
+                <label> Nut. Mike Tyson </label>
+
+            </div>
+
+            
         </ng-template>
     </p-card>
 </div>

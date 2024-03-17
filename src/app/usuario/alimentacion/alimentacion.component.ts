@@ -13,13 +13,22 @@ import { ServicioLoginService } from 'src/app/servicios/servicio-login.service';
 export class AlimentacionComponent implements OnInit {
   menu: menuDia[];
   constructor(private backend:ServicioBackendService, private data_user:ServicioLoginService, private data_sharing: DataSharingService, private router: Router) {
-    this.menu = [];
+    this.menu = [
+      new menuDia('Monday', 1, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Tuesday', 2, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Wednesday', 3, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Thursday', 4, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Friday', 5, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Saturday', 6, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos'),
+      new menuDia('Sunday', 7, 'Oatmeal', 'Turkey and apple gyro', 'Lettuce tacos')
+    ];
   }
 
   ngOnInit(): void {
-    this.backend.MenuSemanalCliente(this.data_user.getUsuario()).subscribe(data => {
+    /*this.backend.MenuSemanalCliente(this.data_user.getUsuario()).subscribe(data => {
       this.menu = data.menusemanal;
     });
+    */
   }
   editar(menu: menuDia){
     this.data_sharing.setMenu(menu);

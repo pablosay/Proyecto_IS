@@ -12,15 +12,15 @@
         <div class= "flex justify-content-center align-content-center w-full ">
             <form [formGroup]="form_inicio_sesion" (ngSubmit)="intentarIngresar()">
                 <span>
-                    <p class = "instructions"> Inicia sesión si eres un administrador, nutricionista o cliente. </p>
+                    <p class = "instructions"> Login as client, nutritionist or manager. </p>
                 </span>
                 <span>
                     <input pInputText class = "w-full mb-3" id="username" type="text" placeholder="Correo electronico" formControlName="usuario"/>
                 </span>
                 <span>
-                    <input pInputText class = "w-full mb-3" id="password" type="text" placeholder="Contraseña" formControlName="pw"/>
+                    <input pInputText class = "w-full mb-3" id="password" type="password" placeholder="Contraseña" formControlName="pw"/>
                 </span>
-                <p-button type = "input" [disabled]="!form_inicio_sesion.valid" label="Login"  ></p-button>
+                <p-button type = "input" class = "login" [disabled]="!form_inicio_sesion.valid" label="Login"  ></p-button>
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
-<link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-
+<!--
 <div class = "principal-container"> 
     <p-card header="{{perfil.nombre}}" [style]="{width: '360px'}" styleClass="p-card-shadow">
         <ng-template pTemplate="header">
@@ -15,4 +15,39 @@
             <label> Descripción: {{perfil.descripcion}} </label> <br> <br>
         </ng-template>
     </p-card>
+</div>
+-->
+
+<div class="bg-blue-100 flex flex-row align-content-center">
+
+        <p-card header="{{perfil.nombre}}" styleClass="p-card-shadow w-3">
+
+            <ng-template pTemplate="header">
+        
+                <img alt="Card" src="./../../../assets/imagenes/fondo.jpeg">
+        
+            </ng-template>
+            <img class="perfil" src="./../../../assets/imagenes/perfil.png">
+            <ng-template pTemplate="footer">
+                <div class="flex flex-column">
+        
+                    <label class="mb-3"> Nutritionist </label>
+        
+                    <label class="mb-3"> +9 9999-9999 </label>
+        
+                    <div class="mb-3">
+        
+                        <label class="text-primary"> Collegiate : </label> <label> 1432 </label>
+        
+        
+                    </div>
+        
+                    <label class="mb-3"> Descripción: {{perfil.descripcion}} </label>
+        
+                </div>
+
+            </ng-template>
+
+        </p-card>
+        
 </div>

@@ -1,19 +1,45 @@
-<br>
-<p-table [value]="menu" responsiveLayout="scroll">
-    <ng-template pTemplate="caption">
-        Menu semanal
-    </ng-template>
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Dia</th>
-            <th>Menu</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-menu>
-        <tr>
-            <td>{{menu.dia}}</td>
-            <td><p-tag styleClass="p-mr-2" severity="success" value='Desayuno'></p-tag> {{menu.desayuno}}  <p-tag styleClass="p-mr-2" severity="warning" value='Almuerzo'></p-tag> {{menu.almuerzo}} <p-tag styleClass="p-mr-2" severity="info" value='Cena'></p-tag> {{menu.cena}}</td>
-            <td><button pButton pRipple type="button" icon="pi pi-pencil" (click)="editar(menu)" class="p-button-rounded p-button-text"></button></td>
-        </tr>
-    </ng-template>
-</p-table>
+<div class=" "> 
+
+    <p-table [value]="menu" responsiveLayout="scroll" styleClass="mt-4 shadow-6" >
+        <ng-template pTemplate="caption">
+            Weekly menu
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Day</th>
+                <th> <p-tag styleClass="p-mr-2" severity="success" value='Breakfast'></p-tag> </th>
+                <th>  <p-tag styleClass="p-mr-2" severity="warning" value='Lunch'></p-tag></th>
+                <th> <p-tag styleClass="p-mr-2" severity="info" value='Dinner'></p-tag> </th>
+                <th> Edit </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-menu>
+            <tr>
+                <td>
+                    {{menu.dia}}
+
+                </td>
+                
+                <td>
+
+                    {{menu.desayuno}}
+
+                </td>
+
+                <td>
+
+                    {{menu.almuerzo}}
+                
+                </td>
+
+                <td> 
+
+                    {{menu.cena}}
+
+                </td>
+                <td><button pButton pRipple type="button" icon="pi pi-pencil" (click)="editar(menu)" class="p-button-rounded p-button-text"></button></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

@@ -1,20 +1,50 @@
-<div class = "contenedor"> 
-    <div class = "table">
-        <p-chart type="line" [data]="data_peso" [options]="options"></p-chart>
+<div class = "flex-row align-items-center justify-content-center w-full">
+
+    <div class = "w-full mt-4 shadow-8 mb-4" >
+
+        <div class="w-full flex justify-content-center align-items-center mt-4 mb-4">
+
+            <label class="text-center" style="color: white; font-size: 10vh;"> General data </label>
+
+        </div>
+
+        <div class = "mb-4 flex justify-content-center align-items-center w-full">
+
+            <p-chart type="line" [data]="data_peso" [options]="options" class="w-9"></p-chart>
+        </div>
+
+        <div class = "mb-4 flex justify-content-center align-items-center w-full"> 
+
+            <p-chart type="line" [data]="data_altura" [options]="options" class="w-9"></p-chart>
+        </div>
+
+        <div class = "mb-4 pb-4 flex justify-content-center align-items-center w-full"> 
+
+            <p-chart type="line" [data]="data_imc" [options]="options" class="w-9"></p-chart>
+
+        </div>
+        
     </div>
-    <div class = "table"> 
-        <p-chart type="line" [data]="data_altura" [options]="options"></p-chart>
+
+    <div class = "w-full mt-4 mb-4 shadow-8" >
+
+        <div class="w-full flex justify-content-center align-items-center mt-4 mb-4">
+
+            <label class="text-center" style="color: white; font-size: 10vh;"> Extremities </label>
+
+        </div>
+
+        <div class = "table"> 
+
+            <p-chart type="line" [data]="data_tricep" [options]="options"></p-chart>
+            
+        </div>
+
     </div>
-    <div class = "table"> 
-        <p-chart type="line" [data]="data_imc" [options]="options"></p-chart>
-    </div>
+    
+    
 </div>
-<div class = "contenedor"> 
-    <div class = "table">
-        <p-chart type="polarArea" [data]="grafica_extremidades" [options]="options2"></p-chart>
-    </div>
-    <div class = "table"> 
-        <p-chart type="polarArea" [data]="grafica_torso" [options]="options2"></p-chart>
-    </div>
-</div>
+
+
+
 

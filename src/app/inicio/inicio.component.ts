@@ -14,7 +14,7 @@ export class InicioComponent implements OnInit {
   constructor(private sesion: ServicioLoginService ,private router: Router, private fb: FormBuilder, private backend: ServicioBackendService) {
 
     this.form_inicio_sesion = this.fb.group({
-      usuario: ['', [Validators.required , Validators.pattern('[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}')]],
+      usuario: ['', [Validators.required ]],
       pw: ['', [Validators.required, Validators.minLength(8)]]
     })
 
@@ -24,18 +24,31 @@ export class InicioComponent implements OnInit {
   intentarIngresar(){
 
     let usuario = String(this.form_inicio_sesion.controls['usuario'].value);
-    let pw = String(this.form_inicio_sesion.controls['pw'].value)
-    let tipo_usuario = usuario.substring(0,1);
+    let pw = String(this.form_inicio_sesion.controls['pw'].value);
 
-    if(tipo_usuario === "A"){
-      tipo_usuario = "admins"
-    } else if(tipo_usuario === "C"){
-      tipo_usuario = "clientes"
+    if(usuario == "nutritionist") {
+
+      this.sesion.usuarioIngresado(usuario, "nutris")
+      this.router.navigateByUrl("nutris/bienvenida")
+
+    } else if (usuario == "client"){
+
+      this.sesion.usuarioIngresado(usuario, "clientes")
+      this.router.navigateByUrl("clientes/bienvenida")
+
+    } else if(usuario == "manager") {
+
+      this.sesion.usuarioIngresado(usuario, "admins")
+      this.router.navigateByUrl("admins")
+
     } else {
-      tipo_usuario = "nutris"
-    }
 
-    this.backend.verificarDatosLogIn(tipo_usuario, usuario, pw).subscribe(datos_usuario => {
+      alert("Please enter a valud username")
+
+    }
+    
+
+    /* this.backend.verificarDatosLogIn(tipo_usuario, usuario, pw).subscribe(datos_usuario => {
       
       if(datos_usuario.usuario.length == 0){
         alert("Usuario o contraseña incorrecto");
@@ -51,6 +64,7 @@ export class InicioComponent implements OnInit {
       }
       
     });
+    */
     
   } 
 }

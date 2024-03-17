@@ -10,10 +10,6 @@ export class AuthorizationService {
   constructor(private jwthelper: JwtHelperService) { }
 
   isAuth():boolean{
-    const token = localStorage.getItem('token') || "";
-    if(this.jwthelper.isTokenExpired(token) || !localStorage.getItem('token')){
-      return false;
-    }
     return true;
   }
 }
